@@ -1,0 +1,140 @@
+                <div class="year" id="year1">
+                    <div class="head">
+                        <h3>Freshman</h3>
+                    </div>
+                    <div class="quarter-holder" id="f2">
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Fall</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Winter</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Spring</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+<!--
+                        <div class="quarter summer-quarter">
+                            <h5 class='quarter-head'>Summer</h5>
+                        </div>
+-->
+                    </div>
+                </div>
+                <div class="year" id="year2">
+                    <div class="head">
+                        <h3>Sophomore</h3>
+                    </div>
+                    <div class="quarter-holder">
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Fall</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Winter</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Spring</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+<!--
+                        <div class="quarter summer-quarter">
+                            <h5 class='quarter-head'>Summer</h5>
+                        </div>
+-->
+                    </div>
+                </div>
+                <div class="year" id="year3">
+                    <div class="head">
+                        <h3>Junior</h3>
+                    </div>
+                    <div class="quarter-holder">
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Fall</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Winter</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Spring</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+<!--
+                        <div class="quarter summer-quarter">
+                            <h5 class='quarter-head'>Summer</h5>
+                        </div>
+-->
+                    </div>
+                </div>
+                <div class="year" id="year4">
+                    <div class="head">
+                        <h3>Senior</h3>
+                    </div>
+                    <div class="quarter-holder">
+                       <div class="quarter">
+                           <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Fall</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Winter</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+                        <div class="quarter-divider"></div>
+                        <div class="quarter">
+                            <div class="add-block-button" name="${index}"><p>&plus; Add</p></div>
+                            <div class='quarter-head'>
+                                <h5 class="season">Spring</h5>
+                                <h5 class="quarter-unit-count"></h5>
+                            </div>
+                        </div>
+<!--
+                        <div class="quarter summer-quarter">
+                            <h5 class='quarter-head'>Summer</h5>
+                        </div>
+-->
+                    </div>
+                </div>

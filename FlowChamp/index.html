@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FlowChamp</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/animations.css">
+        <script src="js/plugins/jquery.js"></script>
+        <script src="js/plugins/jquery-ui.js"></script>
+        <script src="js/plugins/jquery-touch.js" async></script>
+        <script src="js/plugins/materialize.js" async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8 user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    </head>
+    <body onload="loadTasks()">
+        <div class="welcome-container">
+            <div class="logo">
+                <div class="logo-letter">
+                    <div id="top-f"></div>
+                    <div id="bottom-f"></div>
+                </div>
+                <div class="bottom-text">flowchamp</div>
+            </div>
+            <h3>College Planning Made Personal</h3>
+            <h4>Open the menu to get started</h4>
+        </div>
+        <div class="menu-nav-buttons">
+            <div id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img class="back-button" src="img/arrow.svg" onclick="popStack()">
+        </div>
+        <div class="header">
+            <div class=header-contents>
+                <p class="header-title">Welcome</p>
+                <div class="loading">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+            <div class="edit-container">
+                <div class="left-container">
+                    <div class="header-button" id="close-edit-container-button" onclick="closeEditMode()">&times;</div>
+                    <div id="selected-count-container">1 selected</div>
+                </div>
+                <div class="edit-action-container">
+                    <div class="header-button" onclick="toggleFlagPalette()">
+                        <i class="material-icons">flag</i>
+                    </div>
+                    <div class="header-button" onclick="toggleColorPalette()">
+                        <i class="material-icons">color_lens</i>
+                    </div>
+                    <div class="header-button" onclick="deleteSelectedBlocks()">
+                        <i class="material-icons">delete</i>
+                    </div>
+                </div>
+            </div>
+            <ul class="tabs">
+                <li class="tab" id="1-tab" value="1" onclick="changeTab(this.id)"><a href="#year1">Freshman</a></li>
+                <li class="tab" id="2-tab" value="2" onclick="changeTab(this.id)"><a href="#year2">Sophomore</a></li>
+                <li class="tab" id="3-tab" value="3" onclick="changeTab(this.id)"><a href="#year3">Junior</a></li>
+                <li class="tab" id="4-tab" value="4" onclick="changeTab(this.id)"><a href="#year4">Senior</a></li>
+            </ul>
+        </div>
+        <div class="color-palette hidden">
+            <div class="color-choice concentration" id="concentration" onclick="changeSelectedBlockColor(this)"></div>
+            <div class="color-choice minor" id="minor" onclick="changeSelectedBlockColor(this)"></div>
+            <div class="color-choice free-class" id="free-class" onclick="changeSelectedBlockColor(this)"></div>
+            <div class="color-choice general-ed" id="general-ed" onclick="changeSelectedBlockColor(this)"></div>
+            <div class="color-choice major" id="major" onclick="changeSelectedBlockColor(this)"></div>
+            <div class="color-choice support" id="support" onclick="changeSelectedBlockColor(this)"></div>
+        </div>
+        <div class="flag-palette hidden">
+            <div class="flag-choice" id="mark-complete" onclick="editBlock(this.id)">
+                <i class="material-icons">check</i>
+                <p>Complete</p>
+            </div>   
+            <div class="flag-choice" id="mark-next-quarter" onclick="editBlock(this.id)">
+                <i class="material-icons">call_made</i>
+                <p>Next quarter</p>
+            </div>   
+            <div class="flag-choice" id="mark-in-progress" onclick="editBlock(this.id)">
+                <i class="material-icons" >schedule</i>
+                <p>In Progress</p>
+            </div>
+            <div class="flag-choice" id="mark-retake" onclick="editBlock(this.id)">
+                <i class="material-icons">settings_backup_restore</i>
+                <p>Retake</p>
+            </div>
+            <div class="flag-choice" id="mark-none" onclick="editBlock(this.id)">
+                <i class="material-icons">do_not_disturb</i>
+                <p>Clear</p>
+            </div>
+        </div>
+        <div class="base">
+            <div class="year-holder">
+
+            </div>
+        </div>
+        
+        <div class="disabled" onclick="closeMenu()"></div>
+        <div class="option-modal"></div>
+        <div class="block-menu"></div>
+        
+        <div class="menu-modal">
+            <div class="menu-logo-container">
+                <div class="logo menu-logo">
+                    <div class="logo-letter">
+                        <div id="top-f"></div>
+                        <div id="bottom-f"></div>
+                    </div>
+                    <div class="bottom-text">flowchamp</div>
+                </div>
+            </div>
+            <h3 class="menu-option slide-right" id="chart-browser" onclick="changeWindow(this.id)">Choose Flowchart</h3>
+            <h3 class="menu-option slide-right" id="chart-builder" onclick="setupBuilder()">Chart Builder</h3>
+            <h3 class="menu-option slide-right" id="utilities-browser" onclick="changeWindow(this.id)">Degree Info</h3>
+            <h3 class="menu-option slide-right" id="settings-button" onclick="changeWindow(this.id)">Settings</h3>
+        </div>
+        
+        <div class="external-site-modal">
+            <div class="external-site-nav">
+                <p onclick="closeSiteNav()">&times;</p>
+            </div>
+            <div class="site-container"></div>
+        </div>
+        
+        <script src="js/index.js"></script>
+        <script src="js/components.js"></script>
+        <script src="js/chart.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/chart_builder.js"></script>
+    </body>
+</html>
+
