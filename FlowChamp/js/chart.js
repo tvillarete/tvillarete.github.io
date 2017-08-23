@@ -24,10 +24,10 @@ function getLastChart() {
 
 function setupChartComponents() {
     var yearComponents = `
-        ${newYearComponent("year1", "Freshman")}
-        ${newYearComponent("year2", "Sophomore")}
-        ${newYearComponent("year3", "Junior")}
-        ${newYearComponent("year4", "Senior")}
+        ${newYearComponent("year1", "Freshman", 2015)}
+        ${newYearComponent("year2", "Sophomore", 2016)}
+        ${newYearComponent("year3", "Junior", 2017)}
+        ${newYearComponent("year4", "Senior", 2018)}
     `;
     $(".year-holder").append(yearComponents);
     checkWindowSize();
@@ -82,19 +82,29 @@ function parseData(data, title) {
     var blockSpot;
     var i = 0;
     var id = 0;
-    
     setupChart(title);
     
-    $.each(data, function(key, data) {
-        blockData = getBlockData(key, data, i);
-        blockSpot = $(".year-holder").children().eq(blockData.year-1).children().eq(1).children(".quarter").eq(blockData.quarter);
-        blockSpot.append(newBlockComponent(blockData, key));
+    $.each(data, function(key, value) {
+        var quarter;
+        var blockLocation
+        var block_metadata = value.block_metadata;
+        var course_data = value.course_data;
+        
+        blockLocation = parseBlockLocation(block_metadata);
+        quarter = $(".year-holder").children().eq(blockLocation[1]-1).children().eq(1).children(".quarter").eq(blockLocation[0]);
+        
+        if (course_data) {
+            quarter.append(newBlockComponent(block_metadata, course_data));
+        } else {
+            quarter.append(newElectiveBlockComponent(block_metadata));
+        }
+        
     });
 }
 
-function getBlockData(key, data, index) {
-    var course_type = data.course_type.toLowerCase().split(' ').join("-");
-    var quarter = data.time[1];
+function parseBlockLocation(block_metadata) {
+    var course_type = block_metadata.course_type.toLowerCase().split(' ').join("-");
+    var quarter = block_metadata.time[1];
     
     switch(quarter) {
         case 'Fall':
@@ -110,11 +120,7 @@ function getBlockData(key, data, index) {
             quarter = 3;
             break;
     }
-    
-    return  {
-        course_type:course_type, title:data.title, year:data.time[0], quarter:quarter,
-        id:key, index:index, catalog_id:data.catalog, credit_size:data.credits, ge_type:data.course_type
-    };
+    return [quarter, block_metadata.time[0]];
 }
 
 function select(editButton) {  
@@ -235,13 +241,15 @@ function calculateUnits() {
         var blocks = $(this).children(".block-outline").children(".block");
         blocks.each(function() {
             value = parseInt($(this).attr("value"));
-            unitCount += value;
-            if ($(this).hasClass("general-ed mark-complete")) {
-                completedGECount += value;
-            } else if ($(this).hasClass("support mark-complete")) {
-                completedSupportCount += value;
-            } else if ($(this).hasClass("major mark-complete")) {
-                completedMajorCount += value;
+            if (value) {
+                unitCount += value;
+                if ($(this).hasClass("general-ed mark-complete")) {
+                    completedGECount += value;
+                } else if ($(this).hasClass("support mark-complete")) {
+                    completedSupportCount += value;
+                } else if ($(this).hasClass("major mark-complete")) {
+                    completedMajorCount += value;
+                }
             }
         });
         $(this).children(".quarter-head").children(".quarter-unit-count").text(`${unitCount} units`);

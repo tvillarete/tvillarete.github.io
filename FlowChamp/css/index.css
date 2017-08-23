@@ -229,6 +229,8 @@ ul {
   transition: all .15s ease-in-out; }
   .base.base-editing .edit-block-button {
     visibility: visible !important; }
+  .base.base-editing .course-info {
+    display: none; }
   .base .block-drop {
     z-index: 50;
     position: absolute;
@@ -264,8 +266,7 @@ ul {
         height: 2em;
         text-align: center; }
         .base .year-holder .year .head h3 {
-          margin: auto;
-          font-family: 'julius sans one'; }
+          margin: auto; }
       .base .year-holder .year .quarter-holder {
         width: 100%;
         display: flex;
@@ -367,18 +368,18 @@ ul {
               height: 3em; }
             .base .year-holder .year .quarter-holder .quarter .block .course-info {
               position: absolute;
-              background: rgba(0, 0, 0, 0.2);
+              background: rgba(0, 0, 0, 0.15);
               width: 2em;
               margin: auto;
               right: 0.5em;
               bottom: 0.5em;
               border-radius: 4px;
-              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
               color: white;
               cursor: pointer;
               transition: all .15s ease-in-out; }
               .base .year-holder .year .quarter-holder .quarter .block .course-info:hover {
-                background: rgba(0, 0, 0, 0.4); }
+                background: rgba(0, 0, 0, 0.4);
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
           .base .year-holder .year .quarter-holder .quarter .editable {
             position: relative;
             cursor: move !important; }
@@ -410,7 +411,7 @@ ul {
   border-bottom-right-radius: 4px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   animation: movingDown 0.15s; }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 750px) {
     .color-palette, .flag-palette {
       top: 6em; }
       .color-palette p, .flag-palette p {
@@ -704,10 +705,10 @@ ul {
     transform: translateY(50%); } }
 @keyframes movingUp {
   0% {
-    transform: translateY(50px); } }
+    transform: translateY(100px) rotate(-2deg); } }
 @keyframes movingDown {
   0% {
-    transform: translateY(-50px); } }
+    transform: translateY(-50px) rotate(2deg); } }
 @keyframes movingLeft {
   0% {
     transform: translateX(50px); } }
@@ -780,6 +781,8 @@ ul {
   0% {
     opacity: 0;
     transform: translateY(25%); } }
+.desktop .base {
+  top: 4em; }
 .desktop .base-editing .edit-block-button {
   visibility: hidden !important; }
 .desktop .show-block {

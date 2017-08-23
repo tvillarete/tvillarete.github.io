@@ -311,6 +311,10 @@ ul {
         .edit-block-button {
             visibility: visible !important;
         }
+        
+        .course-info {
+            display: none;
+        }
     }
     
     .block-drop {
@@ -364,7 +368,6 @@ ul {
                 
                 h3 {
                     margin: auto;
-                    font-family: 'julius sans one';
                 }
             }
             
@@ -503,19 +506,19 @@ ul {
                         
                         .course-info {
                             position: absolute;
-                            background: rgba(0,0,0,.2);
+                            background: rgba(0,0,0,.15);
                             width: 2em;
                             margin: auto;
                             right: 0.5em;
                             bottom: 0.5em;
                             border-radius: 4px;
-                            box-shadow: $bottom-box-shadow;
                             color: white;
                             cursor: pointer;
                             transition: all .15s ease-in-out;
                             
                             &:hover {
-                                background: rgba(0,0,0,.4)
+                                background: rgba(0,0,0,.4);
+                                box-shadow: $bottom-box-shadow;
                             }
                         }
                     }
@@ -580,7 +583,7 @@ ul {
     animation: movingDown 0.15s;
     
             
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 750px) {
         top: 6em;
         p {
             display: none;
@@ -961,13 +964,13 @@ ul {
 
 @keyframes movingUp {
     0% {
-        transform: translateY(50px);
+        transform: translateY(100px) rotate(-2deg);
     }
 }
 
 @keyframes movingDown {
     0% {
-        transform: translateY(-50px);
+        transform: translateY(-50px) rotate(2deg);
     }
 }
 
@@ -1088,6 +1091,10 @@ ul {
 }
 
 .desktop {
+    .base {
+        top: 4em;
+    }
+    
     .base-editing {
         .edit-block-button {
             visibility: hidden !important;

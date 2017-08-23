@@ -40,3 +40,10 @@ function toggleSummerQuarter(value) {
     }
 }
 
+function changeStartYear(yearItem) {
+    $(".year").each(function(key, el) {
+        $(this).attr("name", parseInt($(yearItem).text())+key);
+    });
+    closeMenu();
+    $(".back-button").trigger("click");
+}
