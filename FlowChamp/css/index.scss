@@ -36,7 +36,7 @@ ul {
     position: fixed;
     z-index: 20;
     background: white;
-    top: 6em;
+    top: 4em;
     padding-top: 5em;
     bottom: 0;
     left: 0;
@@ -277,7 +277,6 @@ ul {
     background: rgba(0, 0, 0, .08);
     margin: 1em auto;
     margin-top: 0;
-    margin-bottom: -.5em;
     border-radius: 4px;
     box-shadow: $bottom-box-shadow;
     cursor: pointer;
@@ -835,7 +834,7 @@ ul {
         height: 1.8em;
         width: 3.2em;
         top: -.1em;
-        left: 6em;;
+        left: 1em;;
         background-color: #ccc;
         -webkit-transition: .4s;
         transition: .15s;
@@ -884,6 +883,11 @@ ul {
     transition: all .15s ease-in-out;
     cursor: pointer;
     touch-action: manipulation;
+}
+
+.menu-option, .major-option, .list-item {
+    display: flex;
+    justify-content: space-between;
 }
 
 .modal-sub-header, .modal-statistic {

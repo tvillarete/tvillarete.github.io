@@ -71,6 +71,11 @@ function checkWindowSize() {
     }
 }
 
+function openUrlInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
 function closeSiteNav() {
     $(".external-site-modal").fadeOut("fast");
 }

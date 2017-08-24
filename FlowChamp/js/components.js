@@ -100,7 +100,9 @@ function newChartBrowserView() {
 function newUtilitiesView() {
     var element = `
         <h2 class="modal-header slide-in-right">Degree Information</h2>
-        <h3 class="list-item slide-in-right" onclick="showCurriculumSheet()">Get Curriculum Sheet</h3>
+        <h3 class="list-item slide-in-right" onclick="showCurriculumSheet()">Get Curriculum Sheet
+            <i class="material-icons">keyboard_arrow_right</i>
+        </h3>
         <h4 class="modal-sub-header">Completed Units</h4>
         <h4 class="modal-statistic" id="ge-count">GE's: ${completedGECount}</h4>
         <h4 class="modal-statistic" id="support-count">Support: ${completedSupportCount}</h4>
@@ -141,7 +143,9 @@ function newSettingsView(val) {
                 <div class="toggle round" onclick="changeSetting('summerQuarter', this)"></div>
             </label>
         </h3>
-        <h3 class="list-item slide-in-right" id="year-selector" onclick="changeWindow(this.id);">Choose Start Year</h3>
+        <h3 class="list-item slide-in-right" id="year-selector" onclick="changeWindow(this.id);">Choose Start Year
+            <i class="material-icons">keyboard_arrow_right</i>
+        </h3>
     `;
 }
 
