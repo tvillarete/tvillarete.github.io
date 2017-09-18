@@ -1,0 +1,894 @@
+body{
+    font-family: 'source sans pro';
+    transition: background 1s ease-in-out;
+    overflow: hidden;
+}
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+.editMode{
+    transform: translate(20em);
+    transition: all .3s ease-in-out;
+}
+@keyframes fade-and-scale{
+    0%{
+        transform: scale(.9, .9);
+    }
+    100%{
+
+    }
+}
+@keyframes fade-and-slide{
+    0%{
+        transform: translateY(2em);
+    }
+    100%{
+        
+    }
+}
+
+@keyframes fade-and-side{
+    0%{
+        transform: translateX(-10em);
+    }
+}
+.mainContent{
+    position: absolute;
+    width:100%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow: auto;
+}
+.quickLinksContainer{
+    z-index: 100;
+    position: fixed;
+    height:5.5em;
+    width: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(0,0,0,.8);
+    border-radius: 4px;
+    box-shadow: 0 0 20px black;
+    animation: .4s fade-and-slide;
+    overflow-x: auto;
+}
+.quickLinksContainer .overlay ,.quickLinksPreview .overlay{
+    background: rgba(0,0,0,.6);
+}
+.overlay, .blur{
+    z-index: -1;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.overlay{
+    background: rgba(0,0,0,.1);
+    transition: all .3s ease-in-out;
+}
+.blur{
+    z-index: -1;
+/*    background: url(../images/wp1.jpg);*/
+    transition: background 1s ease-in-out;
+    background-size: cover;
+    transform: translate(0,0);
+}
+.quickLink, .quickLinkPreview{
+    z-index: 2;
+    height:4em;
+    width:11em;
+    margin: .5em;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Source sans pro';
+    box-shadow: 0 0 20px black;
+    color:white;
+    animation: fade-and-scale .3s;
+}
+.quickLink img, .quickLinkPreview img, .widgetSelect img, .quicklinkSelect img{
+    height: 2em;
+    width: auto;
+    margin: 1em auto;
+}
+.widgetContainer{
+    width:100%;
+    max-width: 80em;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+/*
+    overflow-y: scroll;  has to be scroll, not auto 
+  -webkit-overflow-scrolling: touch;
+*/
+    animation: .5s fade-and-scale;
+}
+.widget, #weatherPreview{
+    position: relative;
+    height:15em;
+    width:20em;
+    margin: 1em;
+/*    border: .1em solid rgba(255,255,255,.5);*/
+    display: none;
+    
+    flex-direction: column;
+    box-shadow: 0px 0px 10px black;
+    transition: all .15s ease-in-out;
+    overflow: auto;
+}
+/*
+.widget:hover{
+    outline: .2em solid dodgerblue;
+    box-shadow: 0 0 10px dodgerblue !important;
+}
+*/
+.widget:hover .widgetButtonHolder{
+    opacity: 1;
+    transform: translateY(-3em);
+    transition: all .15s ease-in-out;
+}
+.widget:hover .overlay{
+    background: rgba(0,0,0,.2);
+    transition: all .3s ease-in-out;
+}
+.widget img{
+    z-index: 1;
+    height:3em;
+    width:auto;
+    margin: auto;
+}
+.widgetButtonHolder{
+    position: absolute;
+    height:3em;
+    width:100%;
+    bottom:0;
+    opacity: 0;
+    display: flex;
+    box-shadow: 0 0 10px black;
+    transition: all .15s ease-in-out;
+}
+.widgetButtonHolder a{
+    height:100%;
+    width:100%;
+    margin: 0 auto;
+    line-height: 2.8em;
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    outline: .1em solid rgba(0,0,0,.2);
+    transition: all .15s ease-in-out;
+}
+.widgetButtonHolder a:hover{
+    background:rgba(255,255,255,.3);
+    transition: all .15s ease-in-out;
+}
+.bumper{
+    height:5.5em;
+    width:100%;
+}
+
+form, .form{
+    z-index: 2;
+    height:3em;
+    display: flex;
+    border: none;
+}
+.searchbar{
+    width:75%;
+    background: rgba(255,255,255,.8);
+    border:none;
+    padding: .3em;
+    font-size: 1.3em;
+    color:black;
+}
+.searchbar:focus{
+    box-shadow: none;
+    outline:none;
+}
+.searchButton{
+    width:25%;
+    background: rgba(0,0,0,.3);
+    border:none;
+    color:white;
+}
+.blurToggle{
+    width: 100%;
+    line-height: 3em;
+    background:rgba(0,0,0,.5);
+}
+.blurWarning{
+    display: none;
+}
+.customWP .selected{
+    outline: none;
+    background: dodgerblue;
+}
+#widget7{
+    overflow: hidden;
+}
+#widget5{
+    overflow: hidden;
+}
+#widget5 h3{
+    text-align: center;
+    color: white;
+}
+#widget5 .form{
+    display:none;
+}
+#widget5:hover{
+    height:26em;
+}
+#widget5:hover .form{
+    display: inherit;
+}
+#widget5:hover iframe{
+    display: inherit;
+    height:88.5%;
+        transition: none;
+}
+#widget5:hover img, #widget5:hover h3{
+    display: none;
+}
+#widget5 iframe{
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+}
+.calculator{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.display{
+    background: rgba(255,255,255,.8);
+    padding: .4em;
+    width: 14.6em;
+    height:2em;
+    font-size: 1.3em;
+    text-align: right;
+    border: none;
+}
+.calcRow{
+    display: flex;
+    height:2.3em;
+}
+.calcButton{
+    height:2.3.25em;
+    width: 100%;
+    border: none;
+    background: rgba(255,255,255,.5);
+    outline:None;
+    outline:.1em solid rgba(0,0,0,.3);
+}
+#reset{
+    width:75%;
+}
+#divide{
+    width:25%;
+}
+#operand, #equalSign, #divide{
+    background: rgba(0,0,0,.3);
+    color: white;
+    outline: .1em solid rgba(255,255,255,.5);
+}
+#player{
+    width:20em;
+    height:80%;
+}
+
+
+.iframeHolder{
+    height:34%;
+}
+#settingsSection4 .form{
+    margin-top:1em;
+    width:20em;
+}
+#weatherPreview{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+#widget10{
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+.weatherTitle{
+    margin: 0;
+    height:3em;
+    line-height: 2.5em;
+}
+#weatherPreview h1, #widget10 h1{
+    display: flex;
+    justify-content: center;
+}
+#weatherPreview img, #widget10 img{
+    max-height: 5.5em;
+    margin: 0;
+}
+.tempHolder{
+    display: flex;
+    justify-content: center;
+    background: rgba(0,0,0,.4);
+}
+.text{
+    margin: 0;
+    height: 2.7em;
+    line-height: 2.3em;
+    background: rgba(0,0,0,.7);
+}
+
+.settings{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    font-family: 'source sans pro';
+}
+.sidebar{
+    position: relative;
+    z-index: 100;
+    height:100%;
+    width:25%;
+    max-width: 30em;
+    min-width: 20em;
+    background: rgba(0,0,0,.3);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px black;
+    animation: fade-and-slide .3s;
+}
+.sidebar h2{
+    margin: 0 auto;
+    height:3em;
+    z-index: 100;
+    line-height: 3em;
+    background: rgba(0,0,0,.3);
+    box-shadow: 0 1px 0px black;
+}
+.sidebar h2:hover{
+    background: rgba(255,255,255,.2);
+    transition: all .15s ease-in-out;
+}
+#done{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height:3em;
+    text-align: center;
+    line-height: 3em;
+    background: dodgerblue;
+    color: white;
+}
+.settingsContent{
+    position: relative;
+    height:100%;
+    width: inherit;
+    overflow: auto;
+}
+.settingsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+        animation: fade-and-slide .3s;
+}
+.sectionHeader, .subSectionHeader{
+    height:2.6em;
+    margin: 0;
+    width: 100%;
+    line-height: 2.5em;
+    background: rgba(0,0,0,.3);
+    color: white;
+}
+.sectionHeaderOutline{
+    position: absolute;
+    height:2.6em;
+    width:100%;
+}
+.subSectionHeader{
+    background: rgba(0,0,0,.6);
+    line-height: inherit;
+    height: 1.5em;
+}
+/*Background Settings*/
+.subSection{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+}
+.wallpaper, .customWP, .theme{
+    height:15em;
+    width:15em;
+    margin:1em;
+    box-shadow: 0 0 10px black;
+    background-size: cover;
+}
+.wallpaper:nth-child(1){
+    background: url(../images/wp1_icon.jpg) center;
+    background-size: cover;
+}
+.wallpaper:nth-child(2){
+    background: url(../images/wp2_icon.jpg);
+    background-size: cover;
+}
+.wallpaper:nth-child(3){
+    background: url(../images/wp3_icon.jpg);
+    background-size: cover;
+}
+.wallpaper:nth-child(4){
+    background: url(../images/wp4_icon.jpg);
+    background-size: cover;
+}
+.theme:nth-child(1){
+    background: url(../images/logos/default.jpg);
+    background-size: cover;
+}
+.theme:nth-child(2){
+    background: url(../images/logos/colored.jpg);
+    background-size: cover;
+}
+.theme:nth-child(3){
+    background: url(../images/logos/iphone.jpg);
+    background-size: cover;
+}
+.customWP{
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,.7);
+    background-size: contain;
+}
+.uploadBox{
+    margin-bottom: 0;
+    height:3em;
+    display: flex;
+    bottom: 0;
+}
+.uploadBox input{
+    width:65%;
+}
+.uploadBox h2{
+    width:35%;
+    height: 100%;
+    margin: auto;
+    line-height: 2em;
+    background: rgba(0,0,0,.3);
+    color: white;
+}
+.customWallpaperPreview{
+    height: 60%;
+    background-size: cover;
+}
+
+.widgetSelectorContainer, .quicklinkSelector{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.widgetSelect{
+    position: relative;
+    height:15em;
+    width:20em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px black;
+    transition: all .15s ease-in-out;
+    overflow: auto;
+}
+.quicklinkSelect{
+    margin: 1em;
+    height:7em;
+    width:14em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px black;
+    transition: all .15s ease-in-out;
+}
+
+.quickLinksPreview{
+    position: fixed;
+    height:5.5em;
+    left: 22em;
+    right:0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0 0 20px black;
+    animation: .4s fade-and-slide;
+    overflow-x: auto;
+}
+.signup{
+    width: 10em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 1em;
+}
+.signup input{
+    border:none;
+    outline: none;
+    background: none;
+    font-size: 1.3em;
+    color: white;
+    border: .1em solid rgba(250,250,250,.6);
+    box-shadow: 0 0 10px black;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+}
+.signup input:hover{
+    background: rgba(200,200,200,.5);
+    transition: all .3s ease-in-out;
+}
+
+#quickLink1, #qpreview1, .quicklinkSelect:nth-child(1){
+    background:rgba(100,200,100,.4);
+}
+#quickLink2, #qpreview2, .quicklinkSelect:nth-child(2){
+    background:rgba(100,200,100,.4)
+}
+#quickLink3, #qpreview3, .quicklinkSelect:nth-child(3){
+    background-color:rgba(36, 116, 237, 0.4)
+}
+#quickLink4, #qpreview4, .quicklinkSelect:nth-child(4){
+    background-color:rgba(59, 89, 152, 0.5)
+}
+#quickLink5, #qpreview5, .quicklinkSelect:nth-child(5){
+    background-color:rgba(22, 185, 237, .5)
+}
+#quickLink6, #qpreview6, .quicklinkSelect:nth-child(6){
+    background-color:rgba(203, 32, 39, .7)
+}
+#quickLink7, #qpreview7, .quicklinkSelect:nth-child(7){
+    background-color:rgba(185,9,11, 0.6)
+}
+#quickLink8, #qpreview8, .quicklinkSelect:nth-child(8){
+    background-color:rgba(89, 202, 41, .7)
+}
+#quickLink9, #qpreview9, .quicklinkSelect:nth-child(9){
+    background-color:rgba(255, 146, 1, .7)
+}
+#quickLink10, #qpreview10, .quicklinkSelect:nth-child(10){
+    background-color: rgba(204, 0, 0, .7)
+}
+
+.selected{
+    outline: .2em solid dodgerblue;
+    box-shadow: 0 0 20px dodgerblue !important;
+    transition: all .15s ease-in-out;
+}
+.cover{
+    position: absolute;
+    height:100%;
+    width:100%;
+    z-index: 3;
+    visibility: collapse;
+}
+
+/*Theme stuff*/
+.iphone .widget{
+    border-radius: 50px;
+    overflow: hidden;
+    width:16em;
+}
+.iphone .cover{
+    visibility: visible;
+    border-radius: 50px;
+    transition: all .15s ease-in-out;
+    display: flex;
+}
+.iphone .cover img{
+    max-height: 5em;
+}
+.iphone .widgetButtonHolder{
+    opacity: 1;
+    bottom:3em;
+    box-shadow: none;
+}
+.iphone .overlay{
+    opacity: 0;
+}
+.iphone .quickLinksContainer .overlay{
+    background: rgba(100,100,100,.5);
+    opacity: 1;
+}
+.iphone .widget:hover{
+    box-shadow: 0 0 20px black;
+}
+.iphone .widget:hover .widgetButtonHolder{
+    transform: none;
+}
+.iphone .widget:hover .cover{
+    animation: fadeout .3s;
+    visibility: collapse;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+.iphone .searchbar{
+    padding-left: 1em;
+}
+.iphone #widget1{
+    background:rgba(72, 133, 237,1);
+}
+.iphone #widget1 .cover{
+    background: white;
+    display: flex;
+}
+.iphone #widget1 a:nth-child(1){
+    background: #db3236;
+}
+.iphone #widget1 a:nth-child(2){
+    background: #f4c20d;
+}
+.iphone #widget1 a:nth-child(3){
+    background: #3cba54;
+}
+.iphone .widget:nth-child(2){
+    background:indigo;
+}
+.iphone #widget2 a{
+    background: rgba(0,10,100,.8);
+}
+.iphone #widget2 .cover{
+    background: rgba(0,10,100,1);
+    display: flex;
+}
+.iphone #widget2 .cover img{
+    max-height: 3em;
+}
+.iphone #widget3, .iphone #widget3 .cover{
+    background:rgba(255, 69, 0,1);
+}
+.iphone #widget3 .cover img{
+    max-height: 10em;
+}
+.iphone #widget4, .iphone #widget4 .cover{
+    background:rgba(59, 89, 152, 1);
+}
+.iphone #widget4 .cover img{
+    max-height: 12em;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+.iphone .widget:nth-child(5){
+    background:#2ebd59;
+}
+.iphone #widget5 .cover{
+    background: rgb(10,10,10);
+}
+.iphone #widget5 .cover img{
+    max-height: 14em;
+}
+.iphone #widget6{
+    background:rgba(255, 153, 0, 1);
+}
+.iphone #widget6 .cover{
+    background: rgb(50,50,50);
+}
+.iphone #widget6 a{
+    background: rgba(50,50,50,1);
+}
+.iphone .widget:nth-child(7){
+    background:rgba(59, 89, 152, 0.9);
+}
+.iphone #widget7 .cover{
+    background: url(../images/icons/calculator.png);
+    background-color: orange;
+    background-size: cover;
+}
+.iphone .widget:nth-child(8), #widget8 .cover{
+    background:rgba(229,45,39,1);
+}
+.iphone #widget9, .iphone #widget9 .cover{
+    background:rgb(255, 85, 0);
+}
+.iphone #widget9 .searchbar{
+    z-index: 2;
+}
+.iphone #widget10, #widget10 .cover{
+    background:rgb(80,190,255);
+}
+.iphone .weatherTitle{
+    font-size: 1.8em;
+    height:3.3em;
+}
+.iphone .display{
+    width:94%;
+}
+.iphone #weatherPreview img{
+    margin: 0;
+}
+.iphone .region{
+    display: none;
+}
+.iphone .calcButton{
+}
+.iphone #operand, .iphone #divide, .iphone #equalSign{
+    background: #FF9500;
+    outline: .1em solid rgba(0,0,0,.5);
+}
+.iphone .quickLinksContainer{
+    height:10em;
+}
+.iphone .quickLink{
+    height:8em;
+    width:8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+}
+.iphone .quickLink img{
+    max-height:1.5em;
+}
+.iphone #quickLink1{
+    background:#08552B;
+}
+.iphone #quickLink2{
+    background:#08552B;
+}
+.iphone #quickLink3{
+    background-color:rgba(36, 116, 237, 1)
+}
+.iphone #quickLink4{
+    background-color:rgba(59, 89, 152, 1)
+}
+.iphone #quickLink5{
+    background-color:rgba(22, 185, 237, 1)
+}
+.iphone #quickLink6{
+    background-color:rgba(203, 32, 39, 1)
+}
+.iphone #quickLink7{
+    background-color:rgba(185,9,11, 1)
+}
+.iphone #quickLink8{
+    background-color:rgba(89, 202, 41, 1)
+}
+.iphone #quickLink9{
+    background-color:rgba(255, 146, 1, 1)
+}
+.iphone #quickLink10{
+    background-color: rgba(204, 0, 0, 1)
+}
+
+/*Color Theme*/
+
+.colored #widget1{
+    background:rgba(72, 133, 237,1);
+}
+.colored #widget1 .cover{
+    background: white;
+    display: flex;
+}
+.colored #widget1 a:nth-child(1){
+    background: #db3236;
+}
+.colored #widget1 a:nth-child(2){
+    background: #f4c20d;
+}
+.colored #widget1 a:nth-child(3){
+    background: #3cba54;
+}
+.colored .widget:nth-child(2){
+    background:indigo;
+}
+.colored #widget2 a{
+    background: rgba(0,10,100,.8);
+}
+.colored #widget2 .cover{
+    background: rgba(0,10,100,1);
+    display: flex;
+}
+.colored #widget2 .cover img{
+    max-height: 3em;
+}
+.colored #widget3, .iphone #widget3 .cover{
+    background:rgba(255, 69, 0,1);
+}
+.colored #widget3 .cover img{
+    max-height: 10em;
+}
+.colored #widget4, .iphone #widget4 .cover{
+    background:rgba(59, 89, 152, 1);
+}
+.colored #widget4 .cover img{
+    max-height: 12em;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+.colored .widget:nth-child(5){
+    background:#2ebd59;
+}
+.colored #widget5 .cover{
+    background: rgb(10,10,10);
+}
+.colored #widget5 .cover img{
+    max-height: 14em;
+}
+.colored #widget6{
+    background:rgba(255, 153, 0, 1);
+}
+.colored #widget6 .cover{
+    background: rgb(50,50,50);
+}
+.colored #widget6 a{
+    background: rgba(50,50,50,1);
+}
+.colored .widget:nth-child(7){
+    background:rgba(59, 89, 152, 0.9);
+}
+.colored #widget7 .cover{
+    background: url(../images/icons/calculator.png);
+    background-color: orange;
+    background-size: cover;
+}
+.colored .widget:nth-child(8), #widget8 .cover{
+    background:rgba(229,45,39,1);
+}
+.colored #widget9, .iphone #widget9 .cover{
+    background:rgb(255, 85, 0);
+}
+.colored #widget9 .searchbar{
+    z-index: 2;
+}
+.colored #widget10, #widget10 .cover{
+    background:rgb(80,190,255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
