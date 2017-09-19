@@ -1,7 +1,49 @@
+.fade-in {
+  animation: fadeIn ease 1s;
+}
+
+.fade-up {
+    animation: fadeUp ease 1s;
+}
+
+@keyframes fadeIn{
+  0% {
+      opacity:0;
+      transform: scale(0.9);
+  }
+    90% {
+      opacity:0;
+      transform: scale(0.9);
+  }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUp{
+  0% {
+      opacity:0;
+      transform: translateY(-50%)
+  }
+}
+
+.background {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: fadeIn 2s;
+    transition: background 1s;
+}
+
 body{
     font-family: 'source sans pro';
     transition: background 1s ease-in-out;
     overflow: hidden;
+    background-color: black;
 }
 input {
     -webkit-appearance: none;
@@ -13,6 +55,7 @@ input {
 }
 @keyframes fade-and-scale{
     0%{
+        opacity: 0;
         transform: scale(.9, .9);
     }
     100%{
@@ -81,7 +124,7 @@ input {
 .blur{
     z-index: -1;
 /*    background: url(../images/wp1.jpg);*/
-    transition: background 1s ease-in-out;
+    transition: background 1s;
     background-size: cover;
     transform: translate(0,0);
 }
@@ -123,9 +166,9 @@ input {
     margin: 1em;
 /*    border: .1em solid rgba(255,255,255,.5);*/
     display: none;
-    
     flex-direction: column;
     box-shadow: 0px 0px 10px black;
+    background: rgba(0,0,0,.12);
     transition: all .15s ease-in-out;
     overflow: auto;
 }

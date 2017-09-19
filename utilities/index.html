@@ -1,6 +1,776 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="refresh" content="0; URL='http://users.csc.calpoly.edu/~tvillare/utilities3/templates/'" />
+<!--        <script src="jquery-ui.min.js"></script>-->
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet"  href="static/css/index.css">
+        <script src="jquery.js"></script>
+        <title>Utilities 3.0</title>
     </head>
+    <body onload="startup()">
+        <div class="background"></div>
+        <div class="mainContent fade-in">
+            <div class="widgetContainer">
+                <div class="widget" id="widget1">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/google.png">
+                    </div>
+                    <img src="static/images/logos/google.png" draggable='false'>
+                    <div class="widgetButtonHolder">
+                        <a href="http://gmail.com">Gmail</a>
+                        <a href="http://news.google.com">News</a>
+                        <a href="http://plus.google.com">Plus</a>
+                    </div>
+                      <form action="https://google.com/search">
+                        <input class="searchbar" autofocus="true" type="text" name="q" autocomplete="off">
+                         <input class="searchButton" type="submit" name="searchbutton" value="Search">
+                      </form>
+                </div>
+                <div class="widget" id="widget2">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/logos/yahoo.png">
+                    </div>
+                    <img src="static/images/logos/yahoo.png" draggable='false'>
+                    <div class="widgetButtonHolder">
+                        <a href="http://ymail.com">Mail</a>
+                        <a href="http://news.yahoo.com">News</a>
+                    </div>
+                    <form method="get" action="https://search.yahoo.com/search">
+                        <input type="text" name="p" class="searchbar" autocomplete="off">
+                        <input type="submit" class="searchButton" value="Search" id="search_text">
+                    </form>
+                </div>
+                <div class="widget" id="widget3">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/reddit.png">
+                    </div>
+                    <img src="static/images/logos/reddit.png" draggable='false'>
+                    <div class="widgetButtonHolder">
+                        <a href="http://reddit.com/r/all">Front Page</a>
+                    </div>
+                    <form action="https://www.reddit.com/subreddits/search?q=">        
+                        <input type="text" name="q" class="searchbar" autocomplete=off> 
+                        <input type="submit" class="searchButton" value="Search" id="search_text">
+                    </form>
+                </div>
+                <div class="widget" id="widget4">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/facebook.png">
+                    </div>
+                    <img src="static/images/logos/facebook.png" draggable='false'>
+                    <div class="widgetButtonHolder">
+                        <a href="https://www.facebook.com/?q=Wall">Wall</a>
+                        <a href="https://www.facebook.com/messages">Messages</a>
+                        <a href="https://www.facebook.com/find-friends/browser/?">Friends</a>
+                    </div>
+                    <form action="https://www.facebook.com/search/top/?q=">
+                        <input class="searchbar" type="text" name="q" autocomplete="off">
+                        <input class="searchButton" type="submit" name="searchbutton" value="Search">
+                    </form>
+                </div>
+                <div class="widget" id="widget5">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/spotify.png">
+                    </div>
+                    <img src="static/images/logos/spotify.png" draggable='false'>
+                    <h3>Hover for music</h3>
+                    <div class="form" action="javascript">
+                        <input class="searchbar" id="spotifyURL" type="text" autocomplete="off" placeholder="Enter Playlist URL">
+                        <input class="searchButton" type="submit" name="searchbutton" value="Search">
+                    </div>
+                    <div class="spotifyContainer">
+                        <iframe src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&view=list" frameborder="0" allowtransparency="true"></iframe>
+                    </div>
+                    <script>
+                        $("#spotifyURL").change(function(){
+                            if ($(this)!=""){
+                                var spotiURL = $("#spotifyURL").val();
+                                localStorage.setItem("spotiURL",spotiURL);
+                                $(".spotifyContainer iframe").remove();
+                                $(".spotifyContainer").html("<iframe src='https:/embed.spotify.com/?uri="+spotiURL+"&view=list' frameborder='0' allowtransparency='true'></iframe>");
+                            }
+                            else{
+                                var spotiURL = 'https://open.spotify.com/user/1230292382/playlist/3qUaENDx61gReGolqmOvA9';
+                                localStorage.setItem("spotiURL",spotiURL);
+                                $(".spotifyContainer iframe").remove();
+                                $(".spotifyContainer").html("<iframe src='https:/embed.spotify.com/?uri="+spotiURL+"&view=list' frameborder='0' allowtransparency='true'></iframe>");
+                            }
+                        })
+                    </script>
+                </div>
+                <div class="widget" id="widget6">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/amazon.png">
+                    </div>
+                    <img src="static/images/logos/amazon.png" draggable='false'>
+                    <div class="widgetButtonHolder">
+                        <a href="https://amazon.com/account">My Account</a>
+                    </div>
+                    <form method="get" action="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=">
+                        <input name="keywords" class="searchbar" type="text" autocomplete="off" value="">
+                        <input type="submit" class="searchButton" value="Search">
+                    </form>
+                </div>
+                <div class="widget" id="widget7">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                    </div>
+                    <form class="calculator" name="calculator" > 
+                        <input class="display" type="textfield" name="ans" value="" placeholder='0' readonly>
+                        <div class="calcRow">
+                            <input class="calcButton" id="reset" type="reset" value="Clear">
+                            <input class="calcButton" id="divide" type="button" value="/" onClick="document.calculator.ans.value+='/'">
+                        </div>
+                        <div class='calcRow'>
+                            <input class="calcButton" id="button7" type="button" value="7" onClick="document.calculator.ans.value+='7'">
+                            <input class="calcButton" type="button" value="8" onClick="document.calculator.ans.value+='8'">
+                            <input class="calcButton" type="button" value="9" onClick="document.calculator.ans.value+='9'">
+                            <input class="calcButton" id="operand" type="button" value="X" onClick="document.calculator.ans.value+='*'">
+                        </div>
+                        <div class='calcRow'>
+                            <input type="button" class="calcButton" id="button4" value="4" onClick="document.calculator.ans.value+='4'">
+                             <input type="button" class="calcButton" value="5" onClick="document.calculator.ans.value+='5'">
+                             <input type="button" class="calcButton" value="6" onClick="document.calculator.ans.value+='6'">
+                             <input type="button" class="calcButton" id="operand" value="-" onClick="document.calculator.ans.value+='-'">
+                        </div>
+                        <div class='calcRow'>
+                            <input class="calcButton" id="button1" type="button" value="1" onClick="document.calculator.ans.value+='1'">
+                            <input class="calcButton" type="button" value="2" onClick="document.calculator.ans.value+='2'">
+                            <input class="calcButton" type="button" value="3" onClick="document.calculator.ans.value+='3'">
+                            <input class="calcButton" id="operand" type="button" value="+" onClick="document.calculator.ans.value+='+'">
+                        </div>
+                        <div class='calcRow'>
+                            <input class="calcButton" id='zero' type="button" value="0" onClick="document.calculator.ans.value+='0'">
+                            <input class="calcButton" id='period' type="button" value="."  onClick="document.calculator.ans.value+='.'">
+                            <input class="calcButton" id="equalSign" type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+                        </div>
+                    </form>
+                </div>
+                <div class="widget" id="widget8">
+<!--                    <div id="player"></div>-->
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/youtube.png">
+                    </div>
+                    <img src="static/images/logos/youtube.png" draggable='false'>
+                    <div class="form" action="javascript">
+                        <input type="text" autocomplete="off" name="q" class="searchbar" id="youtubeSearch">
+                        <input type="submit" class="searchButton" name="searchbutton" value="Search" id="search_text">
+                    </div>
+<!--
+                    <script>
+                        $("#youtubeSearch").change(function(){
+                            search();
+                        });
+                        
+                        // After the API loads, call a function to enable the search box.
+function handleAPILoaded() {
+  $('#search-button').attr('disabled', false);
+}
+
+// Search for a specified string.
+function search() {
+  var q = $('#youtubeSearch').val();
+  var request = gapi.client.youtube.search.list({
+    q: q,
+    key: 'AIzaSyDgKrAKqCKuIZk-oBLdFnQZ3hWCc2vyvnU',
+    part: 'snippet'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    console.log(response);
+  });
+}
+                    </script>
+-->
+                </div>
+                <div class="widget" id="widget9">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/logos/soundcloud.png">
+                    </div>
+                    <img style="max-height:5em;" src="static/images/logos/soundcloud.png"/>
+                    <div class='searchContainer'>
+                        <form class="form" action="https://soundcloud.com/search">
+                            <input type="text" name="q" class="searchbar" autocomplete="off">
+                            <input type="submit" class="searchButton" name="" value="Search" id="search_text">
+                        </form>
+                    </div>
+                </div>
+                <div class="widget" id="widget10">
+<!--                    <div class="blur"></div>-->
+                    <div class="overlay"></div>
+                    <div class="cover">
+                        <img src="static/images/icons/weather.png" style="margin:auto; height:10em">
+                    </div>
+                    <div id="forecastHolder">
+                        
+                    </div>
+                </div>
+                <div class="bumper"></div>
+            </div>
+            <div class="quickLinksContainer fade-up">
+<!--                <div class="blur"></div>-->
+                <div class="overlay"></div>
+                <div class="quickLink" id="settingsQuickLink" style="background:rgba(170,170,170,.6)">
+                    <img src="static/images/logos/settings.png">
+                </div>
+                <a class="quickLink" id="quickLink1" href="https://polylearn.calpoly.edu">
+                    <img src="static/images/logos/calpoly.png">
+                </a>
+                 <a class="quickLink" id="quickLink2" href="https://my.calpoly.edu">
+                    <img src="static/images/logos/polylearn.png">
+                </a>
+                <a class="quickLink" id="quickLink3" href="https://reddit.com">
+                    <img src="static/images/logos/reddit.png">
+                </a>
+                <a class="quickLink" id="quickLink4"  href="https://facebook.com">
+                    <img src="static/images/logos/facebook.png">
+                </a>
+                <a class="quickLink" id="quickLink5"  href="http://twitter.com">
+                    <img src="static/images/logos/twitter.png">
+                </a>
+                <a class="quickLink" id="quickLink6"  href="http://pinterest.com">
+                    <img src="static/images/logos/pinterest.png">
+                </a>
+                <a class="quickLink" id="quickLink7"  href="http://netflix.com">
+                    <img src="static/images/logos/netflix.png">
+                </a>
+                <a class="quickLink" id="quickLink8"  href="http://hulu.com">
+                    <img src="static/images/logos/hulu.png">
+                </a>
+                <a class="quickLink" id="quickLink9"  href="http://amazon.com">
+                    <img src="static/images/logos/amazon.png">
+                </a>
+                <a class="quickLink" id="quickLink10"  href="http://espn.com">
+                    <img src="static/images/logos/espn.png">
+                </a>
+            </div>
+        </div>
+        <div class="settings">
+            <div class="sidebar">
+<!--                <div class="blur"></div>-->
+                <h1>Settings</h1>
+                <h2 class="sidebarButton" id="1sidebar">Theme</h2>
+                <h2 class="sidebarButton" id="2sidebar">Widget Layout</h2>
+                <h2 class="sidebarButton" id="3sidebar">QuickLinks</h2>
+                <h2 class="sidebarButton" id="4sidebar">Weather</h2>
+                <h2 id="done">Done</h2>
+            </div>
+            <div class="sectionHeaderOutline"></div>
+            <div class="settingsContent">
+                <div class="settingsSection" id="settingsSection1">
+                    
+                    <h1 class="sectionHeader">Themes and Wallpaper</h1>
+                    <h2 class="subSectionHeader">Wallpaper</h2>
+                    <div class="subSection">
+                        <div class="wallpaper" id="1wp" src="static/images/wp1.jpg"></div>
+                        <div class="wallpaper" id="2wp" src="static/images/wp2.jpg"></div>
+                        <div class="wallpaper" id="3wp" src="static/images/wp3.jpg"></div>
+                        <div class="wallpaper" id="4wp" src="static/images/wp4.jpg"></div>
+                        <div class="customWP">
+                            <div class="customWallpaperPreview">
+                                
+                            </div>
+                            <div class="form">
+                                <div class="blurToggle">Click to toggle blur</div>
+                            </div>
+                            <div class="uploadBox">
+                                <input class="searchbar" id="customURL" type="text" autocomplete="off" placeholder="Custom URL">
+                                <h2>Done</h2>
+                            </div>
+                            <script>
+                                //Custom Wallpaper Triggers
+                                $("#customURL").change(function(){
+                                    localStorage.setItem("WPType","custom");
+                                    localStorage.setItem("WPURL",$("#customURL").val());
+                                    setWP();
+                                })
+                                $(".uploadBox h2").click(function(){
+                                    if ($("#customURL").val() != ""){
+                                        localStorage.setItem("WPType","custom");
+                                        localStorage.setItem("WPURL",$("#customURL").val());
+                                        setWP();
+                                    }
+                                })
+                                $(".customWallpaperPreview").click(function(){
+                                    localStorage.setItem("WPType","custom");
+                                    setWP();
+                                })
+                                            
+                                //Preset Wallpaper Trigger
+                                $(".wallpaper").click(function(){
+                                    var WPID = parseInt($(this).attr("id"));
+                                    localStorage.setItem("WPType","preset");
+                                    localStorage.setItem("WPID",WPID);
+                                    setWP();
+                                })
+                                $('.blurToggle').click(function(){
+                                    $(this).toggleClass("selected");
+                                    if ($(this).hasClass("selected")){
+                                        localStorage.setItem("blur","true");
+                                    }
+                                    else{
+                                        localStorage.setItem("blur","false");
+                                    }
+                                    setWP();
+                                })
+                            </script>
+                        </div>
+                        <h2 class="blurWarning">Note: Blur on Safari causes significant lag</h2>
+                    </div>
+                    <h2 class="subSectionHeader">Themes</h2>
+                    <div class="subSection">
+                        <div class="theme" id="0theme">
+                            <p class="sectionHeader" style="background: rgba(0,0,0,.8); margin-top:12.4em;">Default</p>
+                        </div>
+                        <div class="theme" id="1theme">
+                            <p class="sectionHeader" style="background: rgba(0,0,0,.8);  margin-top:12.4em;">Color</p>
+                        </div>
+                        <div class="theme" id="2theme">
+                            <p class="sectionHeader" style="background: rgba(0,0,0,.8);  margin-top:12.4em;">iOS</p>
+                        </div>
+                        <script>
+                            $(".theme").click(function(){
+                                $(".theme").removeClass("selected");
+                                $(".mainContent").removeClass("iphone");
+                                $(".mainContent").removeClass("colored");
+                                localStorage.setItem("iphone","false");
+                                localStorage.setItem("colored","false");
+                                if ($(this).attr("id")=="0theme"){
+                                    $(".mainContent").removeClass("iphone");
+                                }
+                                if ($(this).attr("id")=="1theme"){
+                                    $(".mainContent").addClass("colored");
+                                    localStorage.setItem("colored","true");
+                                }
+                                if ($(this).attr("id")=="2theme"){
+                                    $(".mainContent").addClass("iphone");
+                                    localStorage.setItem("iphone","true");
+                                }
+                                $(this).addClass("selected");
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="settingsSection" id="settingsSection2">
+                    <h1 class="sectionHeader">Widget Layout</h1>
+                    <div class="subSection">
+                        <h2 class="subSectionHeader">Choose which ones are visible</h2>
+                        <div class="widgetSelectorContainer">
+                            <div class="widgetSelect" id="1select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/google.png'>
+                            </div>
+                            <div class="widgetSelect" id="2select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/yahoo.png'>
+                            </div>
+                            <div class="widgetSelect" id="3select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/reddit.png'>
+                            </div>
+                            <div class="widgetSelect" id="4select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/facebook.png'>
+                            </div>
+                            <div class="widgetSelect" id="5select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/spotify.png'>
+                            </div>
+                            <div class="widgetSelect" id="6select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/amazon.png'>
+                            </div>
+                            <div class="widgetSelect" id="7select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/calculator.png'>
+                            </div>
+                            <div class="widgetSelect" id="8select">
+                                <div class="blur"></div>
+                                <img src='static/images/logos/youtube.png'>
+                            </div>
+                            <div class="widgetSelect" id="9select">
+                                <div class="blur"></div>
+                                <img src="static/images/logos/soundcloud.png">
+                            </div>
+                            <div class="widgetSelect" id="10select">
+                                <div class="blur"></div>
+<!--                                <img src="static/images/logos/.png">-->
+                                Weather
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settingsSection" id="settingsSection3">
+                    <h1 class="sectionHeader">QuickLinks</h1>
+                    <div class="subSection">
+                        <h2 class="subSectionHeader">Choose which ones are visible</h2>
+                        <div class="quicklinkSelector">
+                            <div class="quicklinkSelect" id="1qselect">
+                                <img src='static/images/logos/calpoly.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="2qselect">
+                                <img src='static/images/logos/polylearn.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="3qselect">
+                                <img src='static/images/logos/reddit.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="4qselect">
+                                <img src='static/images/logos/facebook.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="5qselect">
+                                <img src='static/images/logos/twitter.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="6qselect">
+                                <img src='static/images/logos/pinterest.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="7qselect">
+                                <img src='static/images/logos/netflix.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="8qselect">
+                                <img src='static/images/logos/hulu.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="9qselect">
+                                <img src='static/images/logos/amazon.png'>
+                            </div>
+                            <div class="quicklinkSelect" id="10qselect">
+                                <img src='static/images/logos/espn.png'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settingsSection" id="settingsSection4">
+                    <h1 class="sectionHeader">Weather Settings</h1>
+                    <div class="subSection">
+                        <h2 class="subSectionHeader">Enter a City</h2>
+                        <div class="form">
+                            <input action="javascript" type="text" autocomplete="off" class="searchbar" id="weatherSearch">
+                            <input type="submit" class="searchButton" value="Search">
+                        </div>
+                    </div>
+                    <div class="subSection">
+                        <div id="weatherPreview">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+<!--                <div class="settingsSection" id="settingsSection4">-->
+<!--                    <h1 class="sectionHeader">Account</h1>-->
+<!--
+                    <div class="subSection">
+                        <h2 class="subSectionHeader" id="accountMessage">
+                            You are not currently signed in
+                        </h2>
+                        <div id="status">
+                            <div class="signup">
+                                <input type="button" value="Sign up">
+                                <input type="button" value="Sign in">
+                            </div>
+                            <h1><em>Account details will be shown here</em></h1>
+                        </div>
+                    </div>
+                </div>
+-->
+                <div class="quickLinksPreview">
+                    <div class="overlay"></div>
+                    <div class="blur"></div>
+                    <div class="quickLink" id="qpreview1">
+                        <img src="static/images/logos/calpoly.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview2">
+                        <img src="static/images/logos/polylearn.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview3">
+                        <img src="static/images/logos/reddit.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview4">
+                        <img src="static/images/logos/facebook.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview5">
+                        <img src="static/images/logos/twitter.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview6">
+                        <img src="static/images/logos/pinterest.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview7">
+                        <img src="static/images/logos/netflix.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview8">
+                        <img src="static/images/logos/hulu.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview9">
+                        <img src="static/images/logos/amazon.png">
+                    </div>
+                    <div class="quickLinkPreview" id="qpreview10">
+                        <img src="static/images/logos/espn.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+//            $(".widgetContainer").sortable();
+            $(".settings, .settingsSection, .quickLinksPreview, .quickLink, .quickLinkPreview").hide();
+            $("#settingsQuickLink").fadeIn("fast");
+            $("#settingsQuickLink").click(function(){
+                $(".widgetContainer, .quickLinksContainer").hide();
+                $(".settings").fadeIn("fast");
+            })
+            $("#done").click(function(){
+                $(".settings").fadeOut("fast");
+                $(".widgetContainer, .quickLinksContainer").fadeIn("fast");
+            })
+            $(".sidebarButton").click(function(){
+                $(".settingsSection, .quickLinksPreview").hide();
+                var buttonID = parseInt($(this).attr("id"));
+                $("#settingsSection"+buttonID).fadeIn("fast");
+                if ($(this).attr("id")=="3sidebar"){
+                    $(".quickLinksPreview").fadeIn("fast");
+                }
+            })
+
+
+            function setWP(){  
+                var WPID = localStorage.getItem("WPID");
+                var WPURL = localStorage.getItem("WPURL");
+                var blur = localStorage.getItem("blur");
+                
+                // If preset wallpaper
+                if (localStorage.getItem("WPType")=="preset"){
+                    $(".background, .blur").css("background","url(static/images/wp"+WPID+".jpg) no-repeat fixed");
+                }
+                
+                // If URL was found
+                else if (localStorage.getItem("WPType")=="custom"){
+                    $(".background, .blur").css("background","url("+WPURL+") no-repeat fixed");
+                    if (blur == "true"){
+                        $(".blur").css("filter","blur(5px)");
+                        $(".blurToggle").addClass("selected");
+                        $(".blurWarning").fadeIn("fast");
+                    }
+                    else{
+                        $(".blur").css("filter","none");
+                        $(".blurToggle").removeClass("selected");
+                        $(".blurWarning").hide();
+                    }
+                }
+                
+                // This will happen if nothing is saved in localstorage
+                else{
+                    $(".background").css("background","url(static/images/wp1.jpg) no-repeat fixed");
+                    
+                }
+                
+                // Check if there's a custom URL saved and apply it to that wallpaper tile
+                if (localStorage.getItem('WPURL') != ""){
+                    $(".customWallpaperPreview").css("background","url("+WPURL+")");
+                }
+                
+                //Sets the background to cover the entire page
+                $(".background, .blur, .customWallpaperPreview").css("background-size","cover");
+            }
+            
+            $(".widgetSelect, .quicklinkSelect").click(function(){
+                var id = parseInt($(this).attr("id"));
+                if (!$(this).hasClass("selected")){
+                    $(this).addClass("selected");
+                    localStorage.setItem($(this).attr("id"),"true");
+                    if ($(this).hasClass("widgetSelect")){
+                        $("#widget"+id).css("display","flex");
+                    }
+                    else{
+                        $("#qpreview"+id+", #quickLink"+id).fadeIn("fast");
+                    }
+                }
+                else{
+                    $(this).removeClass("selected");
+                    localStorage.setItem($(this).attr("id"),"false");
+                    if ($(this).hasClass("widgetSelect")){
+                        $("#widget"+id).css("display","none");
+                    }
+                    else{
+                        $("#quickLink"+id+", #qpreview"+id).fadeOut("fast");
+                    }
+                }
+            });
+            function widgetSetup(){
+                $(".widget, .quickLink, .quickLinkPreview").hide();
+                $("#settingsQuickLink").show();
+                //If there's a spotify playlist saved, load it
+                var spotiURL = localStorage.getItem("spotiURL");
+                if (!spotiURL || spotiURL == ""){
+                    spotiURL = 'https://open.spotify.com/user/1230292382/playlist/3qUaENDx61gReGolqmOvA9';
+                }
+                $(".spotifyContainer").html("<iframe src='https:/embed.spotify.com/?uri="+spotiURL+"&view=list' frameborder='0' allowtransparency='true'></iframe>");
+                //Add class 'selected' to .widgetSelect buttons based on localStorage
+                for (i=1; i<11; i++){
+                    if (localStorage.getItem(i+"select")=="true"){
+                        $("#"+i+"select").addClass("selected");
+                    }
+                }
+                //Show selected widgets based on settings selection
+                for (i=1; i<11; i++){
+                    if ($("#"+i+"select").hasClass("selected")){
+                        $("#widget"+i).css("display","flex");
+                    }
+                }
+            }
+            
+            function themeSetup(){
+                if (localStorage.getItem("colored")=="true"){
+                    $(".mainContent").addClass("colored");
+                    $("#1theme").addClass("selected");
+                }
+                else if (localStorage.getItem("iphone")=="true"){
+                    $(".mainContent").addClass("iphone");
+                    $("#2theme").addClass("selected");
+                }
+                else{
+                    $("#0theme").addClass("selected");
+                }
+            }
+            
+            function quickLinkSetup(){
+                //Add class 'selected' to .widgetSelect buttons based on localStorage
+                for (i=1; i<9; i++){
+                    if (localStorage.getItem(i+"qselect")=="true"){
+                        $("#"+i+"qselect").addClass("selected");
+                    }
+                }
+                //Show selected widgets based on settings selection
+                for (i=1; i<9; i++){
+                    if ($("#"+i+"qselect").hasClass("selected")){
+                        $("#qpreview"+i+", #quickLink"+i).fadeIn("fast");
+                    }
+                }
+            }
+            
+            function weatherSetup(type){
+                var widgetID = "#forecastHolder";
+                var value;
+                if (type == "searchbar"){
+                    if (value == ""){
+                        value = "San%20Luis%20Obispo%20ca";
+                    }
+                    else{
+                        value = $("#weatherSearch").val();
+                    }
+                    localStorage.setItem("forecast",value);
+                }
+                else if (localStorage.forecast == undefined){
+                    value = "San%20Luis%20Obispo%20ca";
+                }
+                else{
+                    value = localStorage.getItem("forecast");
+                }
+                value = value.replace(/\s/g,"%20");
+                var weather = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22"+value+"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+                var city = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22"+value+"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";   
+                var cityName = $.ajax({
+                    url: city
+                });  
+                cityName.done(function(response) {
+                    $(widgetID+", #weatherPreview").empty();
+                    var city = response.query.results.channel.location.city;
+                    var region = response.query.results.channel.location.region;
+                    var code = response.query.results.channel.item.condition.code;
+                    $(widgetID+", #weatherPreview").append("<h1 class='weatherTitle'>"+city+", "+region+"</h1>");
+                    $(widgetID+", #weatherPreview").append("<div class='tempHolder'</div>");
+                    $(".tempHolder").append("<img src='https://s.yimg.com/zz/combo?a/i/us/nws/weather/gr/"+code+"d.png'>");
+                    //https://s.yimg.com/zz/combo?a/i/us/nws/weather/gr/32d.png
+                    //http://l.yimg.com/a/i/us/we/52/"+code+".gif
+                    var currentWeather = $.ajax({
+                        url: weather
+                    });  
+                    currentWeather.done(function(response2) {
+                        var temp = response2.query.results.channel.item.condition.temp;
+                        console.log(temp);
+                        var text = response2.query.results.channel.item.condition.text;
+                        $(".tempHolder").append("<div class='forecast'><h1 class='temp' style='font-size:4em; margin: 0;'>"+temp+"&deg; F</h1></div>");
+                        $(widgetID+", #weatherPreview").append("<div class='forecast'><h2 class='text'><em>"+text+"</em></h2></div>");
+                    });
+                });
+            }
+            
+            function firstTimeCheck(){
+                if (!localStorage.getItem("firstTime")){
+                    for (i=1; i<11; i++){
+                        if (i==2){}
+                        else{
+                            localStorage.setItem(i+"select","true");
+                        }
+                    }
+                    for (i=3; i<8; i++){
+                        localStorage.setItem(i+"qselect","true");
+                    }
+                    localStorage.setItem("firstTime","false");
+                }
+                $(".popup").fadeIn("fast");
+            }
+            
+            $("#weatherSearch").change(function(){
+                weatherSetup("searchbar");
+            })
+            
+            // Functions that happen when body is loading
+            function startup(){
+                firstTimeCheck();
+                setWP();
+                widgetSetup();
+                themeSetup();
+                quickLinkSetup();
+                weatherSetup();
+            }
+        </script>
+        <script>
+            var start = new Date();
+            $(window).load(function() {
+                console.log(new Date() - start);
+            });
+        </script>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
