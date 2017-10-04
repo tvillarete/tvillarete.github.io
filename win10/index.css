@@ -1,4 +1,5 @@
 body{
+    transition: background 1s ease-in-out;
     background:url(images/background1.jpg) no-repeat center center fixed;
     font-family: sans-serif;
     background-size: cover;
@@ -121,6 +122,10 @@ body{
             animation-delay: 1.25s;
 }
 
+.fullscreen {
+    background: blue;
+}
+
 @keyframes orbit {
    0% {
       opacity: 1;
@@ -191,7 +196,7 @@ body{
     }
 }
 .taskbar{
-    z-index: 200;
+    z-index: 300;
     position:fixed;
     flex-wrap: nowrap;
     display: flex;
@@ -200,7 +205,7 @@ body{
     bottom:0;
     left:0;
     right:0;
-    height:3.5em;
+    height:3em;
     width:100%;
     background:rgba(0,0,0,1);
 }
@@ -225,26 +230,27 @@ body{
     display: flex;
     flex-wrap: nowrap;
     height:100%;
-    width:15.2em;
-    line-height: 1.5em;
-    background:rgb(70,70,70);
+    width:19.2em;
+    line-height: .7em;
+    background:rgb(40,40,40);
     color:rgba(70,70,70,1);
 }
 .searchbar:hover{
-    background:rgb(100,100,100)
+    background:rgb(50,50,50)
 }
 .searchbar p{
     margin-left:1em;
     margin-right: 1em;
-    color:lightgray;
+    color:rgb(100,100,120);
 }
 .taskbarIcon{
     display: flex;
     height:100%;
-    width:3.6em;
+    width:3em;
     justify-content: center;
     color:white;
     box-sizing: border-box;
+    margin-left:.2em;
 }
 .taskbarIcon:hover{
     background-color:rgb(100,100,100);
@@ -253,11 +259,11 @@ body{
     background:black;
 }
 .taskbarIcon img{
-    height:50%;
+    height:60%;
     margin: auto;
 }
 .activeIcon{
-    border-bottom:.2em solid white;
+    border-bottom:.2em solid rgb(50,120,200);
 }
 .taskbarRight{
     position: absolute;
@@ -294,23 +300,19 @@ body{
     margin-top:.5em;
 }
 .startMenu{
-    z-index: 999;
+    z-index: 200;
     display: flex;
     flex-direction: row;
     position:fixed;
-    bottom:3.5em;
+    bottom:2.7em;
     left:0;
-    height:100%;
-    width:60%;
+    height:60%;
+    width:60em;
     max-height:40em;
     background:rgba(0,0,0,.8);
-    animation: startPopup .4s;
-}
-.startHide{
-    animation: startPopdown .4s;
-}
-.appHide{
-    animation: startPopdown .3s;
+    animation: .3s fade-and-slide;
+    
+/*    animation: startPopup .4s;*/
 }
 @keyframes startPopup{
     0%{
@@ -336,6 +338,7 @@ body{
     width:25em;
     padding-top:1em;
     color:white;
+    animation: .4s fade-and-slide;
 }
 .sidebarTop{
     position: relative;
@@ -375,6 +378,7 @@ body{
     height:90%;
     width:100%;
     overflow: auto;
+    animation: .4s fade-and-slide;
 }
 .appSection{
     z-index: 5;
@@ -391,6 +395,7 @@ body{
     max-width:19.2em;
 }
 .app{
+    position: relative;
     height:6em;
     width:6em;
     margin:.2em;
@@ -398,10 +403,10 @@ body{
     list-style: none;
     text-align: center;
     color:white;
+    animation: .3s fade-and-slide;
 }
 .app:hover, .wideapp:hover{
-    border: .2em solid white;
-    box-sizing: border-box;
+    outline: 2px solid white;
 }
 .wideapp{
     height:6em;
@@ -411,28 +416,40 @@ body{
     list-style: none;
     background:dodgerblue;
     color:white;
+    animation: .3s fade-and-slide;
 }
 .app img, .wideapp img{
-    max-height:3em;
-    padding-top:.5em;
-    margin-bottom:-1em;
+    position: absolute;
+    max-height:2.5em;
+    margin: auto;
+    top: 0em;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+}
+
+.app p {
+    position: absolute;
+    bottom: 0;
+    line-height: 0;
 }
 /*END START MENU*/
 .cortanaMenu{
+    z-index: 200;
     position: fixed;
     display: flex;
     left:0;
-    bottom:3.5em;
+    bottom:2.7em;
     height:100%;
-    width:18.4em;
+    width:22.4em;
     max-height:40em;
     background:rgba(0,0,0,.8);
-    animation: startPopup .5s;
+    animation: .4s fade-and-slide;
 }
 .cortanaSidebar{
     position: relative;
     height:100%;
-    width:20%;
+    width:14%;
     background: black;
 }
 .cortanaSidebarButton{
@@ -478,17 +495,24 @@ body{
 .desktop{
     position: absolute;
     overflow:none;
-    height:94%;
-    width:100%;
     top:0;
-    bottom:0;
+    bottom:3em;
     left:0;
     right:0;
     overflow: hidden;
 }
+.snap-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+}
+
 .shortcutShell{
     position: absolute;
     display:flex;
+    flex-direction: column;
     overflow: hidden;
     z-index: 0;
     height:100%;
@@ -521,21 +545,52 @@ body{
     position: absolute;
     flex-direction: column;
     height:40em;
-    width:50%;
-    background:white;
-    border-bottom:.1em solid white;
-    border-left:.1em solid white;
-    border-right:.1em solid white;
-    animation: fadein .4s;
+    width:60%;
+    min-width: 25em;
+    min-height: 25em;
+    background:rgb(255,255,255);
+    border: 1px solid white;
+    box-sizing: border-box;
+    animation: fade-and-scale .2s;
     overflow: hidden;
     box-shadow: 0 0 10px rgb(50,50,50);
 }
+
+.popupShell {
+    min-height: 15em
+}
+
+@keyframes fade-and-scale{
+    0%{
+        transform: scale(.9, .9);
+    }
+    100%{
+
+    }
+}
+@keyframes fade-and-shrink{
+    0%{
+        opacity: 0;
+    }
+    100%{
+
+    }
+}
+@keyframes fade-and-slide{
+    0%{
+        transform: translateY(2em);
+    }
+    100%{
+        
+    }
+}
 .titleBar{
     display:flex;
-    height:2.5em;
+    height:2em;
     width:100%;
 }
 .titleBar p{
+    margin: .3em auto;
     margin-left:1em;
 }
 .windowNav{
@@ -553,26 +608,27 @@ body{
 }
 .navButton:nth-child(1) div{
     margin: 0 auto;
-    margin-top:1.3em;
+    margin-top:.8em;
     height:.1em;
-    width:1.1em;
+    width:.7em;
     background:black;
 }
 .navButton2 div{
     margin: 0 auto;
-    margin-top:.7em;
-    height:1.2em;
-    width:1.2em;
+    margin-top:.5em;
+    height:.6em;
+    width:.6em;
     border:.1em solid black;
 }
-.navButton3{
+.closeButton{
     position: relative;
     height:100%;
     width:33.33%;
 }
-.navButton3 img{
-    max-height:2.5em;
-    margin-left: .4em;
+.closeButton img{
+    max-height:1.5em;
+    margin-top:.1em;
+    margin-left: .9em;
     filter: brightness(10%);
     -webkit-filter: brightness(10%);
 }
@@ -580,15 +636,14 @@ body{
     background: lightgray;
     transition: all .1s ease-in-out;
 }
-.navButton3:hover{
+.closeButton:hover{
     background:red;
 }
-.navButton3:hover  img{
+.closeButton:hover  img{
     filter: none;
     -webkit-filter: none;
 }
 .popupShell{
-    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -626,15 +681,19 @@ body{
 .smallWindow{
     height:100%;
     width:99%;
+    animation: .2s fade-and-slide;
 }
 .appContent{
-    height:91.6%;
-    width:100%;
-    padding-top:1em;
+    position: absolute;
+    top: 2.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .appContent iframe{
-    height:100%;
-    width:99.7%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 @keyframes appStartup{
     0%{
@@ -647,6 +706,66 @@ body{
 
     }
 }
+.explorerNav-tab{
+    height:1.5em;
+    margin: 0 auto;
+    margin-top:-1.2em;
+    display: flex;
+    border-bottom:.1em solid gray;
+}
+.explorerNav-tab div{
+    width:4em;
+    text-align: center;
+    line-height: 1.5em;
+}
+.explorerNav-tab div:nth-child(1){
+    background: dodgerblue;
+    color:white;
+}
+.explorerNav{
+    height:1.7em;
+    margin: .4em auto;
+    display: flex;
+    flex-direction: row;
+    font-size: .8em;
+}
+.explorerNav-button{
+    width:2em;
+    margin: .4em;
+}
+.explorerNav img{
+    position: relative;
+    height:100%;
+    max-height: 1em;
+}
+.explorerNav-button:nth-child(1){
+
+}
+.explorerNav-button:nth-child(2){
+    transform: rotate(180deg);
+}
+.explorerNav-button:nth-child(3){
+    margin-top:.6em;
+    max-height: .5em;
+    max-width: .5em;
+}
+.explorerNav-button:nth-child(4){
+    transform: rotate(90deg);
+}
+.explorerNav-button:nth-child(5){
+    width:100%;
+    height;3em;
+    margin: auto;
+    margin-left:1em;
+    margin-right:1em;
+    border: .1em solid lightgray;
+}
+.explorerNav-button:nth-child(6){
+    width:20%;
+    margin: auto;
+    margin-right: 1em;
+    border: .1em solid lightgray;
+}
 .explorerPane{
     display:flex;
     flex-direction: row;
@@ -657,12 +776,15 @@ body{
 .explorerSidebar{
     height:100%;
     width:25%;
+    min-width:10em;
     border-right:.1em solid lightgray;
     overflow: hidden;
 }
 .explorerSidebar ul{
     margin: 0 auto;
+    line-height: 2em;
     height:2em;
+    cursor: pointer;
 }
 .explorerPane div:nth-child(1) ul:hover{
     background: rgba(0,128,252,.3);
@@ -672,12 +794,42 @@ body{
     height:100%;
     width:75%;
 }
+/*Edge*/
+.edgeNavBar{
+    height:2.5em;
+    display: flex;
+    background: rgb(245,245,244);
+}
+.edgeNavBar input{
+    height:70%;
+    width:60%;
+    margin: auto;
+    margin-left:1em;
+    border:none;
+    border-left:.1em solid darkgray;
+    border-right: .1em solid darkgray;
+    background: rgb(245,245,244);
+    padding:.3em;
+}
+.edgeNavBar input:hover{
+    background:white;
+    border: .1em solid darkgray;
+}
+.edgeContent{
+    height:100%;
+}
+
 .settingsPane{
     display:flex;
     flex-direction: column;
+    text-align: center;
     height:100%;
-    width:100%;
     overflow: auto;
+    animation: .2s fade-and-scale;
+}
+.settingsPane h3{
+    font-weight: 100;
+    font-size: 1.2em;
 }
 .settingsPane h1, .settingsPane h2{
     font-weight: 300;
@@ -702,10 +854,38 @@ body{
     box-sizing: border-box;
     background:dodgerblue;
 }
+.settingsPaneSelector{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    max-width: 48em;
+    animation: .4s fade-and-shrink;
+}
+.settingsPaneSection{
+    height:10em;
+    width:10em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.settingsPaneSection img{
+    max-height: 2.5em;
+    max-width:2.5em;
+    margin: 0 auto;
+}
+.settingsPaneSection:hover{
+    outline:2px solid lightgray;
+}
+
 .settingsSection{
     display:flex;
     height:10em;
     overflow: auto;
+    animation: .2s fade-and-scale;
 }
 #settingsSection1{
     position: relative;
@@ -713,7 +893,141 @@ body{
     flex-wrap: wrap;
     align-content: flex-start;
     flex-direction: column;
-    
+}
+#settingsPane-1{
+    margin: auto;
+    height:100%;
+    width:20em;
+    flex-direction: column;
+}
+#settingsPane-1 .windowsLogo{
+    position: relative;
+    margin: 0 auto;
+}
+#settingsPane-1 .windowsLogo div{
+    position: relative;
+    border: .2em solid white;
+}
+#settingsPane-4{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin:.5em;
+    margin-left:0;
+    height:100%;
+}
+.settingsPane-4-Sidebar{
+    width:20em;
+}
+.settingsPane-4-Sidebar-Options{
+    height:19em;
+    display: flex;
+
+    flex-direction: column;
+}
+.settingsPane-4-Sidebar-Options p{
+    padding-left:1em;
+    margin: 0 auto;
+    margin-left:0;
+    height:3em;
+    width:90%;
+    line-height: 3em;
+}
+.settingsPane-4-Sidebar-Options p:hover{
+    background:lightgray;
+}
+.settingsPane-4-Main{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height:30em;
+}
+.settingsPane-4-Main-Group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin:.5em;
+    animation: .3s fade-and-slide;
+}
+.preview{
+    height:9em;
+    width:16em;
+    background: url(images/background1.jpg);
+    background-size: cover;
+    transition: .5s background ease-in-out;
+}
+.previewStart{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left:0;
+    justify-content: flex-end;
+    height:7.4em;
+    width:5em;
+    padding:.5em;
+    background: rgba(0,0,0,.8);
+}
+.previewTaskbar{
+    height:.75em;
+    width:100%;
+    background:rgba(0,0,0,.8);
+}
+.previewApp, .previewApp2{
+    height:3em;
+    width:3em;
+    background:dodgerblue;
+    border:.1em solid black;
+    box-sizing: border-box;
+    text-align: center;
+    color:white;
+}
+#previewApp2-hold{
+    display: flex;
+    flex-direction: column;
+    height:3em;
+}
+.previewApp2{
+    height:1.5em;
+    width:1.5em;
+}
+.WPChooser{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+.WPChooser div{
+    display: flex;
+    flex-direction: row;
+}
+.wallpaper, .customWallpaper{
+    height:100%;
+    overflow: hidden;
+    margin: .1em;
+}
+.customWallpaper{
+    display: flex;
+    justify-content: center;
+    margin: .5em auto;
+    margin-left: 0;
+    height:2.5em;
+    line-height: .6em;
+    width:5em;
+    text-align: center;
+    background:lightgray;
+}
+.customWallpaper:hover{
+    outline: .2em solid darkgray;
+}
+.wallpaper img, .customWallpaper img{
+    max-height:5em;
+}
+.colorSelector{
+    display: flex;
+}
+.selectedColor{
+    border:.2em solid black;
+    box-sizing: border-box;
 }
 #settingsSection2{
     height:5em;
@@ -735,6 +1049,37 @@ body{
     flex-direction: column;
     height:15em;
 }
+
+.backArrow, .arrow{
+    height:100%;
+    width:1em;
+    padding-left:1em;
+    padding-right:1em;
+    padding-top:.3em;
+    padding-bottom:.3em;
+    max-height:1em;
+    margin:0em;
+}
+.backArrow:hover{
+    background: dodgerblue;
+}
+#nav2{
+    transform: rotate(180deg)
+}
+.arrow{
+    height:3em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.arrow:hover{
+    background:lightgray;
+}
+.reload{
+    margin: auto;
+    margin-left: 1em;
+    margin-right: 0;
+    max-height: 1.2em;
+}
 #accountInfo{
     display:flex;
     width:100%;
@@ -745,14 +1090,14 @@ body{
     max-width:30em;
 }
 #accountInfo div:nth-child(1) input{
-    height:33.33333%;
+    height:5em;
 }
 #accountInfo div:nth-child(2){
     z-index: 0;
     display:flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
-    width:35%;
     max-width: 10em;
     height:100%;
 }
@@ -767,17 +1112,6 @@ body{
     height:6em;
     border-radius: 50%;
     background-size: cover;
-}
-.wallpaper, .customWallpaper{
-    height:100%;
-    width:10em;
-    overflow: hidden;
-    margin-left:1em;
-}
-.customWallpaper{
-}
-.wallpaper img, .customWallpaper img{
-    max-height:10em;
 }
 #wpform{
     height:2em;
@@ -796,57 +1130,41 @@ body{
 .input:hover{
     background:lightgray;
 }
-#6app{
-    
+.custom-menu {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid #CCC;
+    white-space: nowrap;
+    font-family: sans-serif;
+    background: #FFF;
+    color: #333;
+    padding: 0;
 }
-/*
-@media screen and (max-width: 1024px){
-    .taskbar{
-        height:10%;
-    }
-    .taskbarIcon{
-        width:10em;
-    }
-    .taskbarIcon img{
-        height:65%;
-    }
+#creator{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Each of the items in the list */
+.custom-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    list-style-type: none;
+    transition: all .3s ease;
+}
+
+.custom-menu li:hover {
+    background-color: #DEF;
+}
+
+
+@media screen and (max-width:1024px){
     .startMenu{
-        bottom:10%;
-        height:100%;
-        width:100%;
-        max-width:100%;
-        max-height:80%;
+        width:60%;
     }
-    .startButton{
-        height:100%;
-        width:10em;
-    }
-    .startButton img{
-        height:65%;
-    }
-    .searchbar p{
-        font-size:2em;
-    }
-    .appShell{
-        height:100%;
-        width:100%;
-    }  
 }
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
