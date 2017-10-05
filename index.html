@@ -7,12 +7,12 @@
         <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
         <meta property="og:image" content="https://puu.sh/qBmN8/5384b984ec.png"/>
         <meta property="og:description" content="A fancy little portfolio to house my accomplishments"/>
-        <meta property="og:url" content="users.csc.calpoly.edu/~tvillare" />
+        <meta property="og:url" content="http://tannerv.com/" />
         <meta property="og:title" content="Tanner's Portfolio" />
         
-        
-        
-        
+
+
+
         <title>Tanner's Portfolio</title>
     </head>
     <body>
@@ -51,7 +51,7 @@
                             </ul>
                             <ul>
                                 <div class="quarter">
-                                    <p class="time">Fall</p> 
+                                    <p class="time">Fall</p>
                                 </div>
                             </ul>
                             <ul>
@@ -69,7 +69,7 @@
                             </ul>
                             <ul>
                                 <div class="quarter">
-                                    <p class="time" id="winter">Winter</p> 
+                                    <p class="time" id="winter">Winter</p>
                                 </div>
                             </ul>
                             <ul>
@@ -82,7 +82,7 @@
                             </ul>
                             <ul>
                                 <div class="quarter">
-                                    <p class="time">Spring</p> 
+                                    <p class="time">Spring</p>
                                 </div>
                             </ul>
                             <ul>
@@ -95,7 +95,7 @@
                             </ul>
                             <ul>
                                 <div class="quarter">
-                                    <p class="time" id="winter">Summer</p> 
+                                    <p class="time" id="winter">Summer</p>
                                 </div>
                             </ul>
                             <ul>
@@ -107,7 +107,7 @@
                             </ul>
                             <ul>
                                 <div class="quarter">
-                                    <p class="time" id="winter">Fall</p> 
+                                    <p class="time" id="winter">Fall</p>
                                 </div>
                             </ul>
                             <ul>
@@ -154,12 +154,12 @@
                 <div class="fullscreenButton">
                     <img class="expand" src="images/icons/Expand.png">
                     <img class="collapse" src="images/icons/Collapse.png">
-                </div>             
+                </div>
                 <div class="projectHolder">
 
                     <div class="projectWindow" id="project-1">
                         <div class="projectTitle">
-                            <p>Control Center</p>       
+                            <p>Control Center</p>
                         </div>
                         <div class="container">
                             <img src="images/CCenter/CCenter.png">
@@ -196,7 +196,7 @@
                                         After learning the basics of C, I decided it might be a good idea to familiarize myself with markup languages. HTML and CSS were the first web-oriented languages I learned. CodeCademy taught me the basics of the Document Object Model, and once I had solid understanding of that I began to think of ways I could apply it. That's when I had the idea of making a homepage that included everything that one might need when getting online. Once I had a basic design, I figured it would be nice to make it user-customizable. Javascript and JQuery came to the forefront of my learning at this point. I began to understand how I could let the user manipulate the DOM in basically any way using buttons and input forms. I'm very pleased with how this project has turned
                                         out so far, and use it on a daily basis.
                                     </p>
-                                    <div class="downloadButton"><a href="http://users.csc.calpoly.edu/~tvillare/utilities/">View Website</a></div>
+                                    <div class="downloadButton"><a href="http://tannerv.com/utilities/">View Website</a></div>
                             </div>
                         </div>
                     </div>
@@ -285,7 +285,7 @@
                                     The gif you see above was an earlier rendition of what this website looks like today. This initially started as a fun little experiment I started one summer day to see how close I could get to replicating the Windows 10 Desktop environment. However, once I realized the potential the project had, I began to devote quite a bit more time brainstorming ways to make the feel of it more genuine as well as adding nifty features that were sort of useful. I posted it on <a href="https://www.reddit.com/r/InternetIsBeautiful/comments/550goy/i_made_a_windows_10_html_replica_in_progress/?ref=share&ref_source=link">reddit</a>, and to my surprise people seemed to really like the premise. Needless to say, I felt inspired by the support, and now I consider it a side hobby of mine to add stuff to it every once in a while.
                                 </p>
                                 <div class="downloadButton">
-                                    <a  href="http://users.csc.calpoly.edu/~tvillare/win10/index.html">
+                                    <a  href="http://tannerv.com/win10">
                                             View Website
                                         </a>
                                 </div>
@@ -370,7 +370,7 @@
                     <h3 class="aboutNav" id="about-2">Reviews</h3>
                     <h3 class="aboutNav" id="about-3">Related</h3>
                 </div>
-                
+
             </div>
             <div class="details">
                 <div>
@@ -396,7 +396,7 @@
             <div class="related">
                 <h2>Nothing here yet!</h2>
             </div>
-            
+
             <script>
                 $("#about-1").click(function(){
                     $(".details").show();
@@ -462,7 +462,7 @@
                 $("#about-1").addClass("active");
             })
             $(".navButton, .displayNavigation").click(function(){
-                
+
 //                $(".navButton, #headTitle").addClass("hiddenNav");
 //                if ($(".navButton").hasClass("hiddenNav")){
 //                    $(".displayNavigation").show();
@@ -471,7 +471,7 @@
 //                else{
 //                    $(".displayNavigation").fadeOut();
 //                }
-                
+
                 // If Projects button is clicked
                 if ($(this).attr("class")=="navButton"){
                     $(".navButton, #headTitle").hide();
@@ -498,7 +498,7 @@
                     $(".contact").fadeIn();
                     $("#contactTitle").removeClass("hiddenNav");
                 }
-                
+
                 else if ($(this).attr("class")=="displayNavigation"){
                     $("#nav1, #nav2, #nav3, #headTitle").show();
                     $(this).fadeOut();
@@ -508,13 +508,13 @@
                     $(".timeline").removeClass("timelineMode");
                 }
             })
-            
+
             $(".expand, .collapse").click(function(){
                 $(".allProjects").toggleClass("fullscreen");
                 $(".expand, .collapse").toggle();
                 $(".cover").fadeToggle();
             })
-            
+
             //Timeline Functions
             var currentWindow = 0;
             $(".circle").click(function(){
@@ -528,7 +528,7 @@
                     projectSwitcher("right", "none");
                 }
             })
-            
+
             function projectSwitcher(buttonClass, buttonNumber){
                 var count = $(".projectHolder > .projectWindow").length;
                 $(".allProjects, .leftArrow, .rightArrow").show();
@@ -569,32 +569,32 @@
                     $(".rightArrow").fadeIn();
                 }
             }
-            
-            
+
+
             $(document).keydown(function(e) {
                 if (!$("#projectTitle").hasClass("hiddenNav")){
                     switch(e.which) {
-                    case 37: 
+                    case 37:
                         projectSwitcher("left","none");
                         break;
-                        
-                    case 39: 
+
+                    case 39:
                         projectSwitcher("right","none");
                         break;
-                    
+
                     case 13:
                         hide();
                         break;
-                        
+
                     case 70:
                         fullscreen();
-                        
+
                     default: return; // exit this handler for other keys
                 }
                 e.preventDefault(); // prevent the default action (scroll / move caret)
                 }
             });
-            
+
         </script>
     </body>
 </html>
