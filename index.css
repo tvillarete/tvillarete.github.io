@@ -6,7 +6,6 @@ a{
     color:white;
 }
 .mainScreen{
-    background: url(images/background1.jpg) no-repeat center center fixed;
     background-size: cover;
     position: fixed;
     display: flex;
@@ -19,6 +18,18 @@ a{
     bottom:0;
     text-align: center;
 }
+
+.background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(images/background1.jpg) no-repeat fixed;
+    background-size: cover;
+    animation: fade-scale 1s;
+}
+
 .mainScreen h1{
     z-index: 3;
     position: absolute;
@@ -87,7 +98,7 @@ a{
 
 }
 .navButton:hover{
-    background: rgba(0,0,0,1);
+    filter: brightness(90%);
 }
 .hiddenNav{
 /*    opacity: 0;*/
@@ -107,8 +118,9 @@ a{
     border-radius: 8%;
     height:4em;
     width:4em;
+    cursor: pointer;
     background:rgba(0,0,0,.5);
-    animation: slide .3s;
+    animation: slide-in .3s;
 }
 .displayNavigation div{
     height:.5em;
@@ -124,17 +136,17 @@ a{
 #nav1{
     background:rgba(0,100,200,.7);
     transition: all .3s ease-in-out;
-    animation: slide .3s;
+    animation: slide-in .3s;
 }
 #nav2{
     background:rgba(0,50,100,.7);
     transition: all .5s ease-in-out;
-    animation: slide .5s;
+    animation: slide-in .5s;
 }
 #nav3{
     background:rgba(100,100,100,.7);
     transition: all .7s ease-in-out;
-    animation: slide .7s;
+    animation: slide-in .7s;
 }
 @media screen and (max-height: 450px){
     .navigation{
@@ -318,6 +330,7 @@ a{
     border-radius:50%;
     float:left;
     margin-left:.5em;
+    cursor: pointer;
 }
 .circleOutline{
     position:relative;
@@ -853,11 +866,35 @@ height:22em;
     animation: slide-up .3s;
 }
 
+@keyframes slide-in {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
 
+@keyframes fade-scale {
+    0% {
+        transform: scale(.6);
+        opacity: 0;
+    } 80% {
+        transform: scale(.6);
+        opacity: 0;
+    }
+}
 
+.nav-hidden {
+    opacity: 0;
+    z-index: -1;
+    animation: nav-hidden .5s;
+}
 
-
-
+@keyframes nav-hidden {
+    100% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
 
 
 

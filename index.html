@@ -16,6 +16,7 @@
         <title>Tanner's Portfolio</title>
     </head>
     <body>
+        <div class="background"></div>
         <div class="mainScreen">
             <h1 class="mainTitle" id="headTitle">Tanner Villarete</h1>
             <h1 class="mainTitle" id="projectTitle">Project Timeline</h1>
@@ -462,19 +463,9 @@
                 $("#about-1").addClass("active");
             })
             $(".navButton, .displayNavigation").click(function(){
-
-//                $(".navButton, #headTitle").addClass("hiddenNav");
-//                if ($(".navButton").hasClass("hiddenNav")){
-//                    $(".displayNavigation").show();
-//                    $(".navButton").removeClass("hiddenNav");
-//                }
-//                else{
-//                    $(".displayNavigation").fadeOut();
-//                }
-
                 // If Projects button is clicked
                 if ($(this).attr("class")=="navButton"){
-                    $(".navButton, #headTitle").hide();
+                    $(".navButton, #headTitle").addClass("nav-hidden");
                     $(".displayNavigation").show();
                 }
                 if ($(this).attr("id")=="nav1"){
@@ -500,7 +491,7 @@
                 }
 
                 else if ($(this).attr("class")=="displayNavigation"){
-                    $("#nav1, #nav2, #nav3, #headTitle").show();
+                    $("#nav1, #nav2, #nav3, #headTitle").removeClass("nav-hidden").show();
                     $(this).fadeOut();
                     $(".timeline div:nth-child(1)").fadeOut();
                     $("#projectTitle, #aboutTitle, #contactTitle, .allProjects").addClass("hiddenNav");
