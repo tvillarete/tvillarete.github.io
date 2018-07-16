@@ -214,7 +214,7 @@
             <li data-action="third">Third thing</li>
         </ul>
         <script>
-            
+
             $(document).bind("contextmenu", function (event) {
 
                 // Avoid the real right click
@@ -498,7 +498,7 @@
                                 <p>Personalization</p>
                                  <div class="settingsPane-4-Sidebar-Options">
                                     <p id="1settingsPaneSidebar">Background</p>
-                                     
+
                                      <p id="2settingsPaneSidebar">Colors</p>
                                      <p id="3settingsPaneSidebar">Lock Screen</p>
                                      <p id="4settingsPaneSidebar">Themes</p>
@@ -709,11 +709,38 @@
                 </div>
             </div>
         </div>
+         <div class="popupShell" id="8app">
+             <div class="titleBar">
+                  <p>Free Update Available</p>
+                  <div class="windowNav">
+                      <div class="navButton" id="8close"><div></div></div>
+                      <div class="navButton2" id="8size"><div></div></div>
+                      <div class="closeButton" id="8close"><img src="images/close.png"></div>
+                 </div>
+             </div>
+              <div class="popupMainContent">
+                 <img style="max-height: 60px;"
+                 src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+                 />
+                  <h4 style="margin: 0;">Hey! I've been working on a new version built with ReactJS and
+                     redux. Check it out!</h4>
+                  <div class="notificationButtonContainer">
+                      <div class="notificationButton" id="8notif" >I'm Good</div>
+                      <div class="notificationButton" id="8restart">Check it
+                         Out</div>
+                  </div>
+                  <script>
+                     $("#8restart").click(function(){
+                        window.open('http://tannerv.com/windows', '_blank');
+                     })
+                  </script>
+             </div>
+         </div>
 
         <script>
             // Window Management function to control which window will be on top
             $(".appShell").click(function() {
-                bringToTop(parseInt($(this).attr("id")));    
+                bringToTop(parseInt($(this).attr("id")));
             });
 
 //            $(".appShell, .popupShell").draggable({
@@ -721,7 +748,7 @@
 //                scope: "drop",
 //                containment:"document",
 //            });
-//            
+//
 //            $('.snap-target').droppable({
 //                scope: "drop",
 //                drop:function(event, ui) {
@@ -740,7 +767,7 @@
                         }
                     });
             } );
-            
+
             $(".appHolder, .shortcutShell, .taskbarIcon").sortable();
             $( ".appShell" ).resizable({
                 minWidth:300,
@@ -915,10 +942,10 @@
                     }
                 }
             }
-            
+
             function bringToTop(appnumber) {
                 $(".appShell, .popupShell").each(function() {
-                    $(this).css("z-index" , 5); 
+                    $(this).css("z-index" , 5);
                 });
                 $("#"+appnumber+"app").css("z-index", 5 + 1 );
             }
@@ -939,6 +966,12 @@
             // When all functions have passed, show the desktop
             $(window).load(function(){
                 $(".loadingScreen").fadeOut("slow", 0);
+                 if (!$("#8icon").hasClass("activeIcon")){
+                     $('#8app').fadeToggle("fast");
+                     $('#8app').css("z-index", 15);
+                     $('#8icon').fadeToggle("fast");
+                     $('#8con').toggleClass("activeIcon");
+                 }
             });
         </script>
     </body>
