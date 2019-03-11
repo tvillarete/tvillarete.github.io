@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "81bd6420542d79b94815",
-    "url": "/MarkLogic/static/js/main.81bd6420.chunk.js"
+    "revision": "8e41956c5bb60d6b8f65",
+    "url": "/MarkLogic/static/js/main.8e41956c.chunk.js"
   },
   {
     "revision": "c77dcba955f81266ff1c",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/MarkLogic/static/js/runtime~main.c86a824d.js"
   },
   {
-    "revision": "8a8414fbf7f6d8479f132dac43af31e9",
+    "revision": "42464fc7f841d0982139a0e7b78f4eca",
     "url": "/MarkLogic/index.html"
   }
 ];

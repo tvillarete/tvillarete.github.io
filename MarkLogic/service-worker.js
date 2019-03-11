@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/MarkLogic/precache-manifest.022f77b5a9dff84d2436dafd1c07d3f2.js"
+  "/MarkLogic/precache-manifest.631fcc21ca1b316d9991d89d231edab7.js"
 );
 
 workbox.clientsClaim();
