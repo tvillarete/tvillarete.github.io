@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/MarkLogic/static/js/runtime~main.c86a824d.js"
   },
   {
-    "revision": "42464fc7f841d0982139a0e7b78f4eca",
+    "revision": "eafdc39e2f362aab922d16a87c1c1f80",
     "url": "/MarkLogic/index.html"
   }
 ];
