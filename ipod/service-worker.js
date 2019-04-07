@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ipod/precache-manifest.6680ac3c93fadaf616c06e41969e8d5d.js"
+  "/ipod/precache-manifest.3f8a922e462bd3388fd788103a7558a0.js"
 );
 
 workbox.clientsClaim();
