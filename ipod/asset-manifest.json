@@ -1,11 +1,11 @@
 {
-  "main.js": "/ipod/static/js/main.3072ab5c.chunk.js",
-  "main.js.map": "/ipod/static/js/main.3072ab5c.chunk.js.map",
+  "main.js": "/ipod/static/js/main.787df055.chunk.js",
+  "main.js.map": "/ipod/static/js/main.787df055.chunk.js.map",
   "runtime~main.js": "/ipod/static/js/runtime~main.f1f92253.js",
   "runtime~main.js.map": "/ipod/static/js/runtime~main.f1f92253.js.map",
-  "static/js/2.aa409c37.chunk.js": "/ipod/static/js/2.aa409c37.chunk.js",
-  "static/js/2.aa409c37.chunk.js.map": "/ipod/static/js/2.aa409c37.chunk.js.map",
+  "static/js/2.aea6c035.chunk.js": "/ipod/static/js/2.aea6c035.chunk.js",
+  "static/js/2.aea6c035.chunk.js.map": "/ipod/static/js/2.aea6c035.chunk.js.map",
   "index.html": "/ipod/index.html",
-  "precache-manifest.b38b8effcca7b329c380ca26502be3ae.js": "/ipod/precache-manifest.b38b8effcca7b329c380ca26502be3ae.js",
+  "precache-manifest.35c80d217675a61cd4c0105c54e5b228.js": "/ipod/precache-manifest.35c80d217675a61cd4c0105c54e5b228.js",
   "service-worker.js": "/ipod/service-worker.js"
 }
