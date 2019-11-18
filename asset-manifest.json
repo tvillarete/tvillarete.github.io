@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "tannerv.com/static/js/main.a80b2700.chunk.js",
+    "main.js.map": "tannerv.com/static/js/main.a80b2700.chunk.js.map",
+    "runtime-main.js": "tannerv.com/static/js/runtime-main.73382b24.js",
+    "runtime-main.js.map": "tannerv.com/static/js/runtime-main.73382b24.js.map",
+    "static/js/2.eb4e04a4.chunk.js": "tannerv.com/static/js/2.eb4e04a4.chunk.js",
+    "static/js/2.eb4e04a4.chunk.js.map": "tannerv.com/static/js/2.eb4e04a4.chunk.js.map",
+    "index.html": "tannerv.com/index.html",
+    "precache-manifest.a7235cecd5908956ab79d1e31f182c0f.js": "tannerv.com/precache-manifest.a7235cecd5908956ab79d1e31f182c0f.js",
+    "service-worker.js": "tannerv.com/service-worker.js"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.73382b24.js",
+    "static/js/2.eb4e04a4.chunk.js",
+    "static/js/main.a80b2700.chunk.js"
+  ]
+}
