@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/music/static/js/runtime~main.4a84191b.js"
   },
   {
-    "revision": "3c924f86a706913c0915",
-    "url": "/music/static/js/main.6588b0e5.chunk.js"
+    "revision": "5a3a90ce079df374d541",
+    "url": "/music/static/js/main.b7771eb0.chunk.js"
   },
   {
     "revision": "27e4e3a5fa50d8436d76",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/music/static/css/2.94ccb78d.chunk.css"
   },
   {
-    "revision": "0679dc45ed8775713a0e8f481376b07d",
+    "revision": "f23f06a5b346f585b1af508c21b081fd",
     "url": "/music/index.html"
   }
 ];
